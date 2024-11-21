@@ -10,6 +10,7 @@ The whole curation process is supposed to be described in GitHub issues in this 
 
 
 ## **Overall curation procedure**
+```mermaid
 flowchart LR
     A[1A: choose issue] 
     A-->B[1B: check for duplicates] -->C[1C: quality check] -->D[1D: propose an action]
@@ -26,7 +27,7 @@ flowchart LR
     style A stroke:#333,stroke-width:4px
     style K fill:#f20707
     style I fill:#07f23a
-
+```
 **![img](images/fig1.png)**
 
 ### **1 Editor actions**
