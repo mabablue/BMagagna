@@ -11,7 +11,7 @@ The whole curation process is supposed to be described in GitHub issues in this 
 
 ## **Overall curation procedure**
 ```mermaid
-flowchart LR
+flowchart TD
     A[1A: choose issue] 
     A-->B[1B: check for duplicates] -->C[1C: quality check] -->D[1D: propose an action]
     D-->|assign a reviewer| E{2: decide}
@@ -142,7 +142,20 @@ Make sure to get in contact with the creator of the FSR nanopub before you chang
 
 If a FAIRsharing DOI needs to be added, in the FIP Wizard this can be added as a Resource URI to II.9 "Related resources to which this resource can be mapped to and which are used to derive its description". Similarly in nanodash this URI would be introduced as `exactMatch` in the last assertion statement and in the provenance of the nanopub use the statement "attributed to myself/others and (partly) derived from an existing entity" and add the DOI of the FAIRsharing record.
 
-![img](images/fig2.png)
+```mermaid
+flowchart LR
+    A[3B: when you need to improve the quality] 
+    A-->B{check creator: FIP Wizard}
+    B-->|yes| C[1 find FSR project, correct and publish it]
+    C -->D[approve FSR nanopub]
+    B-->|no| E[2 find nanopub-URI in nanodash search]
+    E-->F[update as derived nanopub with same thing and improved quality]
+    F-->D
+
+    style A stroke:#333,stroke-width:4px
+    style B fill:#f7eb02
+    style D fill:#07f23a
+```
 
 #### 3C When the FSR nanopub should be retracted
 
@@ -157,7 +170,24 @@ If a FAIRsharing DOI needs to be added, in the FIP Wizard this can be added as a
       2. Delete choice in FIP
       3. Re-publish the FIP
 
-**![img](images/fig3.png)**
+```mermaid
+flowchart LR
+    A[3C: when you reject the FSR metadata] 
+    A-->B{check creator: FIP Wizard}
+    B-->|yes| C[use FIP retraction template]
+    B-->|no| D[disapprove nanopub]
+    C-->F{same thing is described by another nanopub}
+    D-->F
+    F-->|yes| G[all set]
+    F-->|no| H[find all FIPs using this resource]
+    H-->I[delete resource in FIP and publish FIP again]
+
+    style A stroke:#333,stroke-width:4px
+    style B fill:#f7eb02
+    style D fill:#f20707
+    style F fill:#f7eb02
+    style C fill:#f20707
+```
 
 Finally 
 Edit the issue description to add your annotations in the bottom table between the pipe (|) delimiters.
