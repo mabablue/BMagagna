@@ -143,7 +143,7 @@ Make sure to get in contact with the creator of the FSR nanopub before you chang
 If a FAIRsharing DOI needs to be added, in the FIP Wizard this can be added as a Resource URI to II.9 "Related resources to which this resource can be mapped to and which are used to derive its description". Similarly in nanodash this URI would be introduced as `exactMatch` in the last assertion statement and in the provenance of the nanopub use the statement "attributed to myself/others and (partly) derived from an existing entity" and add the DOI of the FAIRsharing record.
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[3B: when you need to improve the quality] 
     A-->B{check creator: FIP Wizard}
     B-->|yes| C[1 find FSR project, correct and publish it]
@@ -171,7 +171,7 @@ flowchart LR
       3. Re-publish the FIP
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[3C: when you reject the FSR metadata] 
     A-->B{check creator: FIP Wizard}
     B-->|yes| C[use FIP retraction template]
